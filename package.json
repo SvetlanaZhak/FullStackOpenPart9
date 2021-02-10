@@ -1,0 +1,19 @@
+{
+  "name": "fullstackopenpart9",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ts-node": "ts-node",
+    "multiply": "ts-node -- multiplier.ts ",
+    "calculate": "ts-node -- calculator.ts"
+  },
+  "author": "Lana Zhak",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^14.14.25",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.5"
+  }
+}
