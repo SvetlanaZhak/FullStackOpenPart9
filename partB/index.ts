@@ -33,7 +33,7 @@ app.get("/bmi", (req, res) => {
   }
 });
 
-app.post("exercises", (req, res) => {
+app.post("/exercises", (req, res) => {
   try {
     const givenDailyExerciseHours: Array<number> = req.body.daily_exercises;
     const target: number = req.body.target;
