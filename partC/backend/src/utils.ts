@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { NewPatientEntry } from "./types";
+import { NewPatientEntry, Gender } from "./types";
 
 const toNewDiaryEntry = (object: any): NewPatientEntry => {
   return {
     name: parseString(object.name),
     dateOfBirth: parseDate(object.dateOfBirth),
-    gender: parseString(object.gender),
+    gender: parseGender(object.gender),
     occupation: parseString(object.occupation),
     ssn: parseString(object.ssn),
   };
@@ -32,5 +32,16 @@ const parseString = (string: any): string => {
   }
 
   return string;
+};
+
+const isGender = (params: any): params is Gender => {
+  return Object.values(Gender).includes(params);
+};
+
+const parseGender = (gender: any): Gender => {
+  if (!gender || !isGender(gender)) {
+    throw new Error("Incorrect or missing gender " + gender);
+  }
+  return gender;
 };
 export default toNewDiaryEntry;
