@@ -1,15 +1,3 @@
-// export type Weather = "sunny" | "rainy" | "cloudy" | "windy" | "stormy";
-
-// export type Visibility = "great" | "good" | "ok" | "poor";
-
-// export interface DiaryEntry {
-//   id: number;
-//   date: string;
-//   weather: Weather;
-//   visibility: Visibility;
-//   comment?: string;
-// }
-// export type NonSensitiveDiaryEntry = Omit<DiaryEntry, "comment">;
 export interface Diagnose {
   code: string;
   name: string;
@@ -26,3 +14,5 @@ export interface Patient {
 }
 
 export type NonSensitivePatientEntry = Omit<Patient, "ssn">;
+
+export type NewPatientEntry = Omit<Patient, "id">;
