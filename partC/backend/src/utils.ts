@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/restrict-plus-operands */
 import { NewPatientEntry, Gender } from "./types";
 
 const toNewDiaryEntry = (object: any): NewPatientEntry => {
@@ -9,6 +10,7 @@ const toNewDiaryEntry = (object: any): NewPatientEntry => {
     gender: parseGender(object.gender),
     occupation: parseString(object.occupation),
     ssn: parseString(object.ssn),
+    entries: parseEntries([]),
   };
 };
 
@@ -33,7 +35,13 @@ const parseString = (string: any): string => {
 
   return string;
 };
+const parseEntries = (entries: any): [] => {
+  if (!entries) {
+    throw new Error("Incorrect or missing string: " + []);
+  }
 
+  return [];
+};
 const isGender = (params: any): params is Gender => {
   return Object.values(Gender).includes(params);
 };

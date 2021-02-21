@@ -5,6 +5,9 @@ import { v4 as uuidv4 } from "uuid";
 const getPatient = (): Patient[] => {
   return patientEntries;
 };
+const getPatientById = (id: string): Patient | undefined => {
+  return patientEntries.find(e => e.id === id);
+};
 
 const addPatientEntry = (entry: NewPatientEntry): Patient => {
   const newPatientEntry = {
@@ -29,4 +32,5 @@ export default {
   getPatient,
   getNonSensitiveEntries,
   addPatientEntry,
+  getPatientById,
 };
