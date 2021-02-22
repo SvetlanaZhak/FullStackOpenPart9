@@ -3,8 +3,9 @@ import axios from "axios";
 
 import { useParams } from "react-router-dom";
 import {Icon} from  "semantic-ui-react";
-import { Patient } from "../types";
+import { Patient, Entry } from "../types";
 import { apiBaseUrl } from "../constants";
+import {EntryInfo} from "../components/EntryInfo";
 
 import { useStateValue, setPatientByID } from "../state";
 
@@ -41,6 +42,13 @@ if(msg.length) {
    
      <p>ssn: {patient?.ssn}</p>
   <p>occupation: {patient?.occupation}</p>
+  <br/>
+  <b>entries</b>
+  {patient?.entries?.length === undefined ?
+  <p>No entries found</p> 
+      
+        :
+        patient?.entries.map((entry: Entry) => <EntryInfo key={entry.id} entry={entry} />)}
     </div>
   );
 };
