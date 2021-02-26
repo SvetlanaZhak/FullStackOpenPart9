@@ -9,7 +9,7 @@ export enum Gender {
   Female = "female",
   Other = "other",
 }
-interface BaseEntry {
+export interface BaseEntry {
   id: string;
   description: string;
   date: string;
@@ -60,5 +60,5 @@ export interface Patient {
   gender: Gender;
   ssn?: string;
   dateOfBirth?: string;
-  entries: Entry[];
+  entries?: Entry[];
 }

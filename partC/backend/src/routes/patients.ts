@@ -3,7 +3,7 @@
 
 import express from "express";
 import patientService from "../services/patientService";
-import toNewPatient from "../utils";
+import { toNewPatient } from "../utils";
 const router = express.Router();
 
 router.get("/", (_req, res) => {
@@ -25,6 +25,18 @@ router.post("/", (req, res) => {
     res.json(patientEntries);
   } catch (error) {
     res.status(400).send(error.message);
+  }
+});
+
+router.post("/:id/entries", (req, res) => {
+  try {
+    const updatedEntries = patientService.addPatientEntryById(
+      req.params.id,
+      req.body
+    );
+    res.json(updatedEntries);
+  } catch (err) {
+    res.status(400).send(err.message);
   }
 });
 

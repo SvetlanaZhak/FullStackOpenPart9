@@ -21,16 +21,3 @@ export const DiagnoseInfo: React.FC <{diagnoseCodes: Array<string | undefined>}>
 
 </div>
     )}
-
-{/* const diagnoseInfo = entry.diagnosisCodes?.map((code) => (
-  <ul key={code}>
-    
-  <li>{diagnose.find(i => i.code === code)?.code}
-  {diagnose.find(i => i.code === code)?.name}  
-  
-  </li>
-   
-   
-  </ul>
-  
-)); */}
